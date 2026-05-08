@@ -11,61 +11,11 @@ Safecatch is designed for:
 * resilience patterns,
 * and cleaner recovery logic.
 
----
-
-# Philosophy
-
-Safecatch is **not** intended to silently hide unexpected bugs.
-
-The package is built around one principle:
-
-> Catch only expected failures.
-
-Good use cases:
-
-* network timeouts,
-* missing optional files,
-* API fallbacks,
-* transient failures,
-* non-critical parsing issues.
-
-Bad use cases:
-
-* catching broad `Exception`,
-* suppressing programming bugs,
-* hiding production errors,
-* ignoring unexpected behavior.
-
-Safecatch should improve resilience without sacrificing debuggability.
-
----
-
-# Features
-
-* **safecatch_handler**
-
-  * Catch a specific exception
-  * Return a fallback value
-  * Or execute a fallback function
-
-* **multi_safecatch_handler**
-
-  * Handle multiple exception types
-  * Use different recovery strategies per exception
-
-* Lightweight and dependency-free
-
-* Designed for readable recovery logic
-
----
-
 # Installation
 
 ```bash
 pip install safecatch
 ```
-
----
 
 # Usage
 
@@ -84,8 +34,6 @@ print(divide(10, 2))  # 5.0
 print(divide(10, 0))  # 0
 ```
 
----
-
 ## Using a Fallback Function
 
 Fallback functions allow custom recovery behavior.
@@ -103,8 +51,6 @@ def divide(a, b):
 
 print(divide(10, 0))
 ```
-
----
 
 ## Multiple Exception Handling
 
@@ -135,7 +81,6 @@ print(test_func(3, 0))   # 0
 print(test_func(3, -1))  # -1
 ```
 
----
 
 # Recommended Usage Patterns
 
@@ -163,7 +108,6 @@ def fetch_user_data():
     return external_api_call()
 ```
 
----
 
 # Anti-Patterns
 
@@ -194,7 +138,24 @@ def load_optional_config():
 
 Specific exception handling is safer and easier to debug.
 
----
+
+# Features
+
+* **safecatch_handler**
+
+  * Catch a specific exception
+  * Return a fallback value
+  * Or execute a fallback function
+
+* **multi_safecatch_handler**
+
+  * Handle multiple exception types
+  * Use different recovery strategies per exception
+
+* Lightweight and dependency-free
+
+* Designed for readable recovery logic
+
 
 # Debugging and Observability
 
@@ -258,7 +219,6 @@ If an exception is raised:
 * the matching recovery behavior is executed,
 * otherwise the exception propagates normally.
 
----
 
 # Testing
 
@@ -272,7 +232,32 @@ pip install -r tests/requirements.txt
 pytest tests/
 ```
 
----
+
+# Philosophy
+
+Safecatch is **not** intended to silently hide unexpected bugs.
+
+The package is built around one principle:
+
+> Catch only expected failures.
+
+Good use cases:
+
+* network timeouts,
+* missing optional files,
+* API fallbacks,
+* transient failures,
+* non-critical parsing issues.
+
+Bad use cases:
+
+* catching broad `Exception`,
+* suppressing programming bugs,
+* hiding production errors,
+* ignoring unexpected behavior.
+
+Safecatch should improve resilience without sacrificing debuggability.
+
 
 # Contributing
 
@@ -289,7 +274,6 @@ Suggested areas for contribution:
 
 Please open an issue or submit a pull request on the GitHub repository.
 
----
 
 # Future Direction
 
