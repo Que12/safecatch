@@ -1,6 +1,6 @@
 [project]
 name = "safecatch"
-version = "1.0.4"
+version = "1.0.5"
 authors = [
   { name="Q12", email="qque12euqq@gmail.com" },
 ]
